@@ -1,14 +1,21 @@
 import React from 'react'
-import OrderForm from './OrderForm'
+
 import './app.css'
-import SellWithUs from './SellWithUs'
+import HomePage from './pages/HomePage'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 const App = () => {
   return (
-    <div>
-      <h1></h1>
-      <OrderForm></OrderForm>
+    <>
+    <Navbar />
+    <HomePage/>
+      
+      
       {/* <SellWithUs/> */}
-    </div>
+      {/* <PreOrderForm/> */}
+      {/* <CustomerSupport/> */}
+      <Footer/>
+    </>
   )
 }
 
