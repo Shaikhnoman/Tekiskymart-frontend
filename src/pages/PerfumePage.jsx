@@ -1,6 +1,6 @@
 import React from "react";
 import Perfumesimg from '../assets/images/Perfumes.jpg'
-import { Link } from "react-router-dom";
+
 
 const products = [
   { name: "OUDH KUWAITI", price: 500, originalPrice: 600, image: Perfumesimg},
@@ -13,7 +13,7 @@ const products = [
   { name: "Royal Hiba Floral", price: 400, originalPrice: 550, image: Perfumesimg },
 ];
 
-const Perfumes = () => {
+const PerfumePage = () => {
   return (
     <div className="container mx-auto p-5">
       {/* Header with Multiple Languages */}
@@ -49,17 +49,8 @@ const Perfumes = () => {
           </div>
         ))}
       </div>
-
-      {/* View More Button */}
-      <Link to='/perfumes'>
-      <div className="flex justify-center mt-5">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
-          VIEW MORE
-        </button>
-      </div>
-      </Link>
     </div>
   );
 };
 
-export default Perfumes;
+export default PerfumePage;

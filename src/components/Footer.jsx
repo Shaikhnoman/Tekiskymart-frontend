@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-8 px-4 md:px-16">
@@ -67,12 +67,12 @@ const Footer = () => {
           </p>
           <p className="mt-2">+91 9359300613, +91 8830772432</p>
           <p className="mt-2">Sales@Tekisky.Com</p>
-          <a
+          <Link to='/login'
             href="#"
             className="text-blue-400 hover:underline mt-2 inline-block"
           >
             Login
-          </a>
+          </Link>
         </div>
       </div>
 

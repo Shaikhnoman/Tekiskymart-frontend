@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PreOrderForm = () => {
+const PreOrderPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -58,4 +58,4 @@ const PreOrderForm = () => {
   );
 };
 
-export default PreOrderForm;
+export default PreOrderPage;

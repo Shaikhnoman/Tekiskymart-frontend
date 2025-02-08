@@ -1,13 +1,12 @@
 import React from "react";
 import othersimg from '../assets/images/others.jpg'
-import { Link } from "react-router-dom";
 
 const products = [
   { name: "Microsoft 330 Combo", price: 1600, originalPrice: 2000, image: othersimg },
   { name: "Quick Heal Pro", price: 385, originalPrice: 850, image: othersimg },
 ];
 
-const Others = () => {
+const OthersPage = () => {
   return (
     <div className="container mx-auto p-5">
       {/* Header with Multiple Languages */}
@@ -43,17 +42,8 @@ const Others = () => {
           </div>
         ))}
       </div>
-
-      {/* View More Button */}
-      <Link to='/others'>
-      <div className="flex justify-center mt-5">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
-          VIEW MORE
-        </button>
-      </div>
-      </Link>
     </div>
   );
 };
 
-export default Others;
+export default OthersPage;

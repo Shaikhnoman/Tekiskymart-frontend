@@ -54,7 +54,7 @@ const Navbar = () => {
           {/* Cart Icon & Hamburger */}
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <ShoppingBag size={24} className="text-gray-700" />
+              <Link to='/shoppingcart'><ShoppingBag size={24} className="text-gray-700" /></Link>
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full">
                 0
               </span>
@@ -79,17 +79,18 @@ const Navbar = () => {
              <Link to='/'>HOME</Link> ,
               <Link to='giftitems'>GIFT-ITEMS</Link>,
               <Link to='dates'>DATES</Link>,
-              <Link to='perfumes'>PERFUMES</Link>,
+              <Link to='perfumes'>PERFUMES</Link>, 
               <Link to='others'>OTHERS</Link>,
               <Link to='clothes'>CLOTHES</Link>,
               <Link to='homemadesnacks'>HOMEMADE SNACKS</Link>,
               <Link to='crockery'>CROCKERY</Link>,
-              <Link to='watches'>WATCHES</Link>,
+              <Link to='watches'>WATCHES</Link>, 
               <Link to='mobiles'>MOBILES</Link>,
               <Link to='dryfruits'>DRY FRUITS</Link>,
               <Link to='preorder'>PRE-ORDER</Link>,
               <Link to='sellwithus'>SELL WITH US</Link>,
               <Link to='customersupport'>CUSTOMER SUPPORT</Link>,
+              <Link to='shoppingcart'></Link>,
             ].map((item, index) => (
               <li key={index}>
                 <a href="#" className="hover:text-gray-300">
@@ -106,20 +107,20 @@ const Navbar = () => {
         <nav className="bg-blue-700 md:hidden">
           <ul className="flex flex-col text-center text-sm font-semibold space-y-2 py-4">
             {[
-              "HOME",
-              "GIFT-ITEMS",
-              "DATES",
-              "PERFUMES",
-              "OTHERS",
-              "CLOTHES",
-              "HOMEMADE SNACKS",
-              "CROCKERY",
-              "WATCHES",
-              "MOBILES",
-              "DRY FRUITS",
-              "PRE-ORDER",
-              "SELL WITH US",
-              "CUSTOMER SUPPORT",
+             <Link to='/'>HOME</Link> ,
+             <Link to='giftitems'>GIFT-ITEMS</Link>,
+             <Link to='dates'>DATES</Link>,
+             <Link to='perfumes'>PERFUMES</Link>,
+             <Link to='others'>OTHERS</Link>,
+             <Link to='clothes'>CLOTHES</Link>,
+             <Link to='homemadesnacks'>HOMEMADE SNACKS</Link>,
+             <Link to='crockery'>CROCKERY</Link>,
+             <Link to='watches'>WATCHES</Link>,
+             <Link to='mobiles'>MOBILES</Link>,
+             <Link to='dryfruits'>DRY FRUITS</Link>,
+             <Link to='preorder'>PRE-ORDER</Link>,
+             <Link to='sellwithus'>SELL WITH US</Link>,
+             <Link to='customersupport'>CUSTOMER SUPPORT</Link>,
             ].map((item, index) => (
               <li key={index}>
                 <a href="#" className="block py-2 hover:bg-blue-800">

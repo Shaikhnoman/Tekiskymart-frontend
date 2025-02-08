@@ -1,6 +1,5 @@
 import React from "react";
 import clothsimg from '../assets/images/cloths.jpg'
-import { Link } from "react-router-dom";
 
 const products = [
   { name: "Kurta With Koti", price: 1000, originalPrice: 1200, image: clothsimg },
@@ -9,7 +8,7 @@ const products = [
   { name: "Beautiful Women Dress", price: 1200, originalPrice: 1450, image: clothsimg },
 ];
 
-const Clothes = () => {
+const ClothesPage = () => {
   return (
     <div className="container mx-auto p-5">
       {/* Header with Multiple Languages */}
@@ -39,17 +38,8 @@ const Clothes = () => {
           </div>
         ))}
       </div>
-
-      {/* View More Button */}
-      <Link to='/clothes'>
-      <div className="flex justify-center mt-5">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
-          VIEW MORE
-        </button>
-      </div>
-      </Link>
     </div>
   );
 };
 
-export default Clothes;
+export default ClothesPage;

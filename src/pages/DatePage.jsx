@@ -1,6 +1,5 @@
 import React from "react";
 import dateimg from '../assets/images/dates.jpg'
-import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -53,7 +52,7 @@ const products = [
   }
 ];
 
-const Dates = () => {
+const DatePage = () => {
   return (
     <div className="container mx-auto p-5">
       {/* Header with Multiple Languages */}
@@ -89,17 +88,8 @@ const Dates = () => {
           </div>
         ))}
       </div>
-
-      {/* View More Button */}
-      <Link to='/dates'>
-      <div className="flex justify-center mt-5">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
-          VIEW MORE
-        </button>
-      </div>
-      </Link>
     </div>
   );
 };
 
-export default Dates;
+export default DatePage;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SellWithUs = () => {
+const SellWithUsPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -136,4 +136,4 @@ const SellWithUs = () => {
   );
 };
 
-export default SellWithUs;
+export default SellWithUsPage;

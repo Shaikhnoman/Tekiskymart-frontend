@@ -1,6 +1,6 @@
 import React from "react";
 import jewleryimg from '../assets/images/Jewelry.jpg'
-
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -91,11 +91,13 @@ const GiftItems = () => {
       </div>
 
       {/* View More Button */}
+      <Link to='/giftitems'>
       <div className="flex justify-center mt-5">
         <button className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
           VIEW MORE
         </button>
       </div>
+      </Link>
     </div>
   );
 };

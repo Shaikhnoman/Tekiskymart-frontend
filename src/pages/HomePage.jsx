@@ -6,6 +6,11 @@ import Others from '../components/Others'
 import Clothes from '../components/Clothes'
 import Carousel from '../components/Carousel'
 import Categories from '../components/categories'
+import HomeMadeSnakes from '../components/HomeMadeSnakes'
+import Crockery from '../components/Crockery'
+import Watchs from '../components/Watchs'
+import Mobiles from '../components/Mobiles'
+import DryFruits from '../components/DryFruits'
 
 const HomePage = () => {
   return (
@@ -18,6 +23,11 @@ const HomePage = () => {
         <Perfumes />
         <Others />
         <Clothes />
+        <HomeMadeSnakes />
+        <Crockery />
+        <Watchs />
+        <Mobiles />
+        <DryFruits />
     </div>
     </>
   )
