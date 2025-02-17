@@ -12,21 +12,21 @@ const carouselItems = [
     title: "Fresh Threads",
     subtitle: "New Arrivals in Fashion",
     buttonText: "SHOP NOW",
-    link: "https://www.TekiskyMart.com",
+    link: "",
   },
   {
     image: crsl2,
     title: "Elegant Abayas",
     subtitle: "Graceful and Stylish",
     buttonText: "EXPLORE NOW",
-    link: "https://www.TekiskyMart.com",
+    link: "",
   },
   {
     image: crsl3,
     title: "Exclusive Dresses",
     subtitle: "Upgrade Your Wardrobe",
     buttonText: "DISCOVER",
-    link: "https://www.TekiskyMart.com",
+    link: "",
   },
 ];
 
