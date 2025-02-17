@@ -15,6 +15,7 @@ import ShoppingCartPage from "./pages/ShoppingCartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSummaryPage from "./pages/OrderSummaryPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const location = useLocation(); // Get current path
@@ -22,7 +23,9 @@ const App = () => {
   return (
     <>
       {/* Hide Navbar on login and register pages */}
-      {location.pathname !== "/login" && location.pathname !== "/register" && <Navbar />}
+      {location.pathname !== "/login" && location.pathname !== "/register" && (
+        <Navbar />
+      )}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -39,7 +42,23 @@ const App = () => {
       </Routes>
 
       {/* Hide Footer on login and register pages */}
-      {location.pathname !== "/login" && location.pathname !== "/register" && <Footer />}
+      {location.pathname !== "/login" && location.pathname !== "/register" && (
+        <Footer />
+      )}
+
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+       
+      />
     </>
   );
 };
