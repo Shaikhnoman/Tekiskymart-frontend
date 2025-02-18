@@ -174,39 +174,125 @@
 
 // export default ShoppingCartPage;
 
-import { useState } from "react";
+// import { useState } from "react";
+// import { Minus, Plus, X } from "lucide-react";
+// import { useNavigate } from "react-router-dom";
+
+// const ShoppingCartPage = () => {
+//   const navigate = useNavigate();
+
+//   const [cart, setCart] = useState([
+//     {
+//       id: 1,
+//       name: "Show Peace Cycle",
+//       price: 249,
+//       quantity: 1,
+//       image: "https://via.placeholder.com/100", // Replace with actual image URL
+//     },
+//   ]);
+
+//   const deliveryCharge = 30;
+//   const totalSaved = 350;
+
+//   const updateQuantity = (id, delta) => {
+//     setCart((prevCart) =>
+//       prevCart.map((item) =>
+//         item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
+//       )
+//     );
+//   };
+
+//   const removeItem = (id) => {
+//     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+//   };
+
+//   const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+//   const totalAmount = subtotal + deliveryCharge;
+
+//   return (
+//     <div className="max-w-xl mx-auto p-4">
+//       <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
+//       {cart.length === 0 ? (
+//         <p>Your cart is empty.</p>
+//       ) : (
+//         <div>
+//           {cart.map((item) => (
+//             <div key={item.id} className="flex items-center p-4 mb-4 shadow-md border rounded-lg">
+//               <img src={item.image} alt={item.name} className="w-16 h-16 object-cover" />
+//               <div className="flex-1 ml-4">
+//                 <p className="font-semibold">{item.name}</p>
+//                 <p className="text-lg font-bold">₹{item.price.toFixed(2)}</p>
+//                 <div className="flex items-center mt-2">
+//                   <button
+//                     className="border px-2 py-1 rounded bg-gray-100"
+//                     onClick={() => updateQuantity(item.id, -1)}
+//                   >
+//                     <Minus size={16} />
+//                   </button>
+//                   <span className="mx-2 text-lg">{item.quantity}</span>
+//                   <button
+//                     className="border px-2 py-1 rounded bg-gray-100"
+//                     onClick={() => updateQuantity(item.id, 1)}
+//                   >
+//                     <Plus size={16} />
+//                   </button>
+//                 </div>
+//               </div>
+//               <button className="bg-red-500 text-white p-2 rounded" onClick={() => removeItem(item.id)}>
+//                 <X size={20} />
+//               </button>
+//             </div>
+//           ))}
+//           <div className="mt-4 p-4 border-t">
+//             <p className="text-lg">Subtotal: ₹{subtotal.toFixed(2)}</p>
+//             <p className="text-lg">Delivery Charge: ₹{deliveryCharge}</p>
+//             <p className="text-lg text-blue-600 font-semibold">Total Amount Saved: ₹{totalSaved}</p>
+//             <p className="text-xl font-bold">Total Amount: ₹{totalAmount.toFixed(2)}</p>
+//             <button
+//               className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md"
+//               onClick={() => navigate("/checkout", { state: { cart, subtotal, totalAmount } })}
+//             >
+//               Check Out
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ShoppingCartPage;
+
+
+import { useEffect, useState } from "react";
 import { Minus, Plus, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const ShoppingCartPage = () => {
   const navigate = useNavigate();
+  const [cart, setCart] = useState([]);
 
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      name: "Show Peace Cycle",
-      price: 249,
-      quantity: 1,
-      image: "https://via.placeholder.com/100", // Replace with actual image URL
-    },
-  ]);
-
-  const deliveryCharge = 30;
-  const totalSaved = 350;
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
+  }, []);
 
   const updateQuantity = (id, delta) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-      )
+    const updatedCart = cart.map((item) =>
+      item._id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
     );
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const removeItem = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    const updatedCart = cart.filter((item) => item._id !== id);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cart.reduce((acc, item) => acc + item.offerPrice * item.quantity, 0);
+  const deliveryCharge = subtotal < 500 ? 30 : 0;
   const totalAmount = subtotal + deliveryCharge;
 
   return (
@@ -217,28 +303,22 @@ const ShoppingCartPage = () => {
       ) : (
         <div>
           {cart.map((item) => (
-            <div key={item.id} className="flex items-center p-4 mb-4 shadow-md border rounded-lg">
-              <img src={item.image} alt={item.name} className="w-16 h-16 object-cover" />
+            <div key={item._id} className="flex items-center p-4 mb-4 shadow-md border rounded-lg">
+              <img src={item.imageURL[0]} alt={item.productName} className="w-16 h-16 object-cover" />
               <div className="flex-1 ml-4">
-                <p className="font-semibold">{item.name}</p>
-                <p className="text-lg font-bold">₹{item.price.toFixed(2)}</p>
+                <p className="font-semibold">{item.productName}</p>
+                <p className="text-lg font-bold">₹{item.offerPrice}</p>
                 <div className="flex items-center mt-2">
-                  <button
-                    className="border px-2 py-1 rounded bg-gray-100"
-                    onClick={() => updateQuantity(item.id, -1)}
-                  >
+                  <button className="bg-gray-300 px-2" onClick={() => updateQuantity(item._id, -1)}>
                     <Minus size={16} />
                   </button>
                   <span className="mx-2 text-lg">{item.quantity}</span>
-                  <button
-                    className="border px-2 py-1 rounded bg-gray-100"
-                    onClick={() => updateQuantity(item.id, 1)}
-                  >
+                  <button className="bg-gray-300 px-2" onClick={() => updateQuantity(item._id, 1)}>
                     <Plus size={16} />
                   </button>
                 </div>
               </div>
-              <button className="bg-red-500 text-white p-2 rounded" onClick={() => removeItem(item.id)}>
+              <button className="bg-red-500 text-white p-2" onClick={() => removeItem(item._id)}>
                 <X size={20} />
               </button>
             </div>
@@ -246,11 +326,10 @@ const ShoppingCartPage = () => {
           <div className="mt-4 p-4 border-t">
             <p className="text-lg">Subtotal: ₹{subtotal.toFixed(2)}</p>
             <p className="text-lg">Delivery Charge: ₹{deliveryCharge}</p>
-            <p className="text-lg text-blue-600 font-semibold">Total Amount Saved: ₹{totalSaved}</p>
             <p className="text-xl font-bold">Total Amount: ₹{totalAmount.toFixed(2)}</p>
             <button
               className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md"
-              onClick={() => navigate("/checkout", { state: { cart, subtotal, totalAmount } })}
+              onClick={() => navigate("/checkout")}
             >
               Check Out
             </button>

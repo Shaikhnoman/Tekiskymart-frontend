@@ -1,137 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const SellWithUsPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    mobile: "",
-    product: "",
-    details: "",
-    hasShop: "no",
-    hasGST: "no",
-  });
+  const [data, setData] = useState([]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://api.example.com/sell-with-us');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted", formData);
-  };
+    fetchData();
+  }, []);
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
-      <h1 className="text-3xl font-bold text-center mb-6">Sell With Us</h1>
-      <h2 className="text-xl font-semibold mb-4">Terms & Conditions</h2>
-      <ul className="list-disc pl-6 mb-6 text-gray-700">
-        <li>Authentic And Reliable Genuine Products</li>
-        <li>No Illegal Materials</li>
-        <li>All Government Norms Should Be Followed</li>
-        <li>1000₹ Subscription For 6 Months With A Maximum Of 10 Product Sales</li>
-        <li>Deals Only For Premium Customers</li>
-      </ul>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block font-medium">Name *</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-2 border rounded-md"
-            placeholder="Enter Name"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Mobile Number *</label>
-          <input
-            type="text"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            className="w-full p-2 border rounded-md"
-            placeholder="Mobile Number"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Which Product Do You Want To Sell *</label>
-          <input
-            type="text"
-            name="product"
-            value={formData.product}
-            onChange={handleChange}
-            className="w-full p-2 border rounded-md"
-            placeholder="Enter Product Name"
-            required
-          />
-        </div>
-        <div>
-          <label className="block font-medium">Product Details *</label>
-          <textarea
-            name="details"
-            value={formData.details}
-            onChange={handleChange}
-            className="w-full p-2 border rounded-md"
-            placeholder="Enter Product Details"
-            required
-          ></textarea>
-        </div>
-        <div className="flex items-center space-x-4">
-          <label className="font-medium">Do You Have Shop?</label>
-          <label>
-            <input
-              type="radio"
-              name="hasShop"
-              value="yes"
-              checked={formData.hasShop === "yes"}
-              onChange={handleChange}
-            />
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="hasShop"
-              value="no"
-              checked={formData.hasShop === "no"}
-              onChange={handleChange}
-            />
-            No
-          </label>
-        </div>
-        <div className="flex items-center space-x-4">
-          <label className="font-medium">Do You Have G.S.T. Number?</label>
-          <label>
-            <input
-              type="radio"
-              name="hasGST"
-              value="yes"
-              checked={formData.hasGST === "yes"}
-              onChange={handleChange}
-            />
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="hasGST"
-              value="no"
-              checked={formData.hasGST === "no"}
-              onChange={handleChange}
-            />
-            No
-          </label>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
-        >
-          Submit Enquiry
-        </button>
-      </form>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">All Sell With Us Requests</h1>
+      <table className="min-w-full bg-white border border-gray-300">
+        <thead>
+          <tr>
+            <th className="py-2 px-4 border-b">Shop Seller Name</th>
+            <th className="py-2 px-4 border-b">Do You Have GST</th>
+            <th className="py-2 px-4 border-b">GST Number</th>
+            <th className="py-2 px-4 border-b">Do You Have Shop</th>
+            <th className="py-2 px-4 border-b">Shop Name</th>
+            <th className="py-2 px-4 border-b">Product Details</th>
+            <th className="py-2 px-4 border-b">Mobile Number</th>
+            <th className="py-2 px-4 border-b">Which Product Do You Want To Sell</th>
+            <th className="py-2 px-4 border-b">Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <tr key={index} className="hover:bg-gray-100">
+              <td className="py-2 px-4 border-b">{item.shopSellerName}</td>
+              <td className="py-2 px-4 border-b">{item.doYouHaveGST}</td>
+              <td className="py-2 px-4 border-b">{item.gstNumber}</td>
+              <td className="py-2 px-4 border-b">{item.doYouHaveShop}</td>
+              <td className="py-2 px-4 border-b">{item.shopName}</td>
+              <td className="py-2 px-4 border-b">{item.productDetails}</td>
+              <td className="py-2 px-4 border-b">{item.mobileNumber}</td>
+              <td className="py-2 px-4 border-b">{item.whichProductDoYouWantToSell}</td>
+              <td className="py-2 px-4 border-b">{item.createdAt}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

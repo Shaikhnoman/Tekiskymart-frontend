@@ -91,7 +91,7 @@ const LoginPage = () => {
         {/* Right Section */}
         <div className="w-1/2 bg-blue-600 flex flex-col items-center justify-center text-white p-6">
           <h2 className="text-2xl font-bold text-center">Welcome To Tekisky Mart!</h2>
-          <p className="text-center text-sm mt-2">Admin / Seller Dashboard</p>
+          <p className="text-center text-sm mt-2">User Dashboard</p>
         </div>
       </div>
     </div>
