@@ -80,7 +80,7 @@ const Products = () => {
                   </div>
 
                   {/* Add to Cart Button */}
-                  <button className="mt-3 w-full bg-blue-500 text-white py-2 text-sm rounded-md flex items-center justify-center gap-2 hover:bg-blue-600 transition">
+                  <button className="mt-3 w-full bg-black text-white py-2 text-sm rounded-md flex items-center justify-center gap-2 hover:bg-blue-600 transition">
                     <ShoppingCart size={16} />
                     Add to Cart
                   </button>

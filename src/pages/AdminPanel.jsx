@@ -9,11 +9,11 @@ const AdminPanel = () => {
   return (
     <>
       <div>
-        <NavbarAdmin/>
+        
         <Carousel />
         <Categories />
         <Products/>
-        <Footer/>
+        
       </div>
     </>
   );

@@ -84,12 +84,12 @@ const Footer = () => {
       </div>
 
       {/* Scroll to Top Button */}
-      <button
-        className="fixed bottom-5 right-5 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition"
+      {/* <button
+        className="fixed om-5 right-5 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         ▲
-      </button>
+      </button> */}
     </footer>
   );
 };

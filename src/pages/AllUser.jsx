@@ -13,7 +13,7 @@ const AllUser = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("https://your-backend.com/api/users");
+      const response = await axios.get("https://tekisky-backend.onrender.com/user/getUsers");
       setUsers(response.data);
       setFilteredUsers(response.data);
     } catch (error) {

@@ -129,11 +129,11 @@ const NavbarAdmin = () => {
           <ul className="flex flex-wrap justify-center text-sm font-semibold space-x-4 py-4">
             {[
               { label: "HOME", path: "/" },
-              { label: "ALL ORDERS", path: "" },
-              { label: "ALL PRODUCTS", path: "" },
-              { label: "CUSTOMERS", path: "" },
-              { label: "ALL USERS", path: "" },
-              { label: "PRE ORDER REQUESTS", path: "" },
+              { label: "ALL ORDERS", path: "/ALLORDERS" },
+              { label: "ALL PRODUCTS", path: "/ALLPRODUCTS" },
+              { label: "CUSTOMERS", path: "/CUSTOMERS" },
+              { label: "ALL USERS", path: "/ALLUSERS" },
+              { label: "PRE ORDER REQUESTS", path: "/PREORDERREQUESTS" },
             
               
             ].map((item, index) => (
@@ -152,12 +152,13 @@ const NavbarAdmin = () => {
         <nav className="bg-blue-700 md:hidden">
           <ul className="flex flex-col text-center text-sm font-semibold space-y-2 py-4">
             {[
-               { label: "HOME", path: "/" },
-               { label: "ALL ORDERS", path: "" },
-               { label: "ALL PRODUCTS", path: "" },
-               { label: "CUSTOMERS", path: "" },
-               { label: "ALL USERS", path: "" },
-               { label: "PRE ORDER REQUESTS", path: "" },
+                  { label: "HOME", path: "/" },
+                  { label: "ALL ORDERS", path: "/ALLORDERS" },
+                  { label: "ALL PRODUCTS", path: "/ALLPRODUCTS" },
+                  { label: "CUSTOMERS", path: "/CUSTOMERS" },
+                  { label: "ALL USERS", path: "/ALLUSERS" },
+                  { label: "PRE ORDER REQUESTS", path: "/PREORDERREQUESTS" },
+                
             ].map((item, index) => (
               <li key={index}>
                 <Link
