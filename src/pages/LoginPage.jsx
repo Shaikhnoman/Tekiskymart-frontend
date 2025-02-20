@@ -78,7 +78,7 @@ const LoginPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
+              className="w-full bg-black text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
             >
               Sign In
             </button>
@@ -89,7 +89,7 @@ const LoginPage = () => {
         </div>
 
         {/* Right Section */}
-        <div className="w-1/2 bg-blue-600 flex flex-col items-center justify-center text-white p-6">
+        <div className="w-1/2 bg-black flex flex-col items-center justify-center text-white p-6">
           <h2 className="text-2xl font-bold text-center">Welcome To Tekisky Mart!</h2>
           <p className="text-center text-sm mt-2">User Dashboard</p>
         </div>

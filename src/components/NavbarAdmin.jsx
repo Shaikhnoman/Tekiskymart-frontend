@@ -38,7 +38,7 @@ const NavbarAdmin = () => {
   };
 
   return (
-    <header className="bg-blue-700 text-white">
+    <header className="bg-black text-white">
       {/* Top Bar */}
       <div className="flex justify-between items-center px-4 py-3 text-sm">
         <div className="flex gap-3">
@@ -124,14 +124,13 @@ const NavbarAdmin = () => {
       </div>
 
       {/* Categories Menu (Desktop) */}
-      <nav className="bg-blue-700 hidden md:block">
+      <nav className="bg-black hidden md:block">
         <div className="container mx-auto">
           <ul className="flex flex-wrap justify-center text-sm font-semibold space-x-4 py-4">
             {[
               { label: "HOME", path: "/" },
               { label: "ALL ORDERS", path: "/ALLORDERS" },
               { label: "ALL PRODUCTS", path: "/ALLPRODUCTS" },
-              { label: "CUSTOMERS", path: "/CUSTOMERS" },
               { label: "ALL USERS", path: "/ALLUSERS" },
               { label: "PRE ORDER REQUESTS", path: "/PREORDERREQUESTS" },
             
@@ -155,7 +154,7 @@ const NavbarAdmin = () => {
                   { label: "HOME", path: "/" },
                   { label: "ALL ORDERS", path: "/ALLORDERS" },
                   { label: "ALL PRODUCTS", path: "/ALLPRODUCTS" },
-                  { label: "CUSTOMERS", path: "/CUSTOMERS" },
+
                   { label: "ALL USERS", path: "/ALLUSERS" },
                   { label: "PRE ORDER REQUESTS", path: "/PREORDERREQUESTS" },
                 

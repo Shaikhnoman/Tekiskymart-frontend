@@ -154,7 +154,7 @@ const Navbar = () => {
 
       {/* Mobile Menu (Dropdown) */}
       {isOpen && (
-        <nav className="bg-blue-700 md:hidden">
+        <nav className="bg-black md:hidden">
           <ul className="flex flex-col text-center text-sm font-semibold space-y-2 py-4">
             {[
               { label: "HOME", path: "/" },
