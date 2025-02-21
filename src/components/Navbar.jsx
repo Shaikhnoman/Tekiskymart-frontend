@@ -52,6 +52,8 @@ const Navbar = () => {
         <p className="text-sm font-medium hidden md:block">
           Delivery Only In Nanded
         </p>
+        <Link to='/login'>Login</Link>
+
       </div>
 
       {/* Main Navbar */}
